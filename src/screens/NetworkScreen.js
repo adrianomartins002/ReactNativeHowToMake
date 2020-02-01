@@ -1,20 +1,34 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
-import {Card} from '../components/molecules';
-
-const menu = [
-  {
-    title: 'Netinfo',
-  },
-];
+import NetInfo from '@react-native-community/netinfo';
 
 /**
  * HomeScreen Component
  * Page to render titles of animes
  */
 export default function NetworkScreen(props) {
-  return <View style={styles.container} />;
+  const [online, setOnline] = useState(true);
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener(state => {
+      setOnline(state.isConnected);
+    });
+    unsubscribe();
+  }, []);
+  return (
+    <View style={styles.container}>
+      
+      {online ?
+      <Text>
+        esta online
+      </Text>
+       :
+       <Text>
+       esta offline
+     </Text>
+      }
+      </Text>
+    </View>
+  );
 }
 
 NetworkScreen.navigationOptions = {
