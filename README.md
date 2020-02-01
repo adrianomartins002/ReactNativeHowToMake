@@ -1,5 +1,8 @@
 # ReactNativeHowToMake
-Projeto para criação de aplicativo para verificar o clima da região pelo gps
+Projeto para criação de aplicativo com diversas possíveis funcionalidades criadas utilizando react native.
+
+# Funcionalidade já inclusa
+ - Component para verificação de conexão com internet usando hooks.
 
 # Iniciando
 Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em 
