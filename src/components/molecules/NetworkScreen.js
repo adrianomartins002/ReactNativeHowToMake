@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {useNetInfo} from '@react-native-community/netinfo';
-
 import Wifi from '../assets/icons/wifi.svg';
+import {useNetInfo} from '@react-native-community/netinfo';
 import * as Animatable from 'react-native-animatable';
 
 export default function NetworkInformation() {
@@ -10,7 +9,6 @@ export default function NetworkInformation() {
   const [backgroundColor, setBackgroundCollor] = useState(true);
   const [messageConnection, setMessageConnection] = useState('Connected');
   const component = useRef(null);
-  let contador = 0;
 
   useEffect(() => {
     if (netInfo.isConnected) {
@@ -21,12 +19,11 @@ export default function NetworkInformation() {
       component.current.slideInDown();
       setMessageConnection('Disconnected!');
       setBackgroundCollor('#B6470D');
-      contador++;
     }
-  }, [netInfo, messageConnection, contador]);
+  }, [netInfo]);
 
   return (
-    <Animatable.View ref={component}>
+    <Animatable.View ref={component} style={styles.containerAnimatable}>
       <View style={[styles.containerComponent, {backgroundColor}]}>
         <Wifi width={40} height={40} fill="#FFF" />
         <Text style={styles.textMessageConnection}>{messageConnection}</Text>
@@ -36,6 +33,12 @@ export default function NetworkInformation() {
 }
 
 const styles = StyleSheet.create({
+  containerAnimatable: {
+    width: '100%',
+    height: 90,
+    position: 'absolute',
+    top: 0,
+  },
   containerComponent: {
     width: '100%',
     height: 90,

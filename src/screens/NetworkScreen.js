@@ -8,8 +8,12 @@ import NetworkInformation from '../components/molecules/NetworkScreen';
  */
 export default function NetworkScreen(props) {
   return (
-    <View>
+    <View style={styles.container}>
       <NetworkInformation />
+      <Text style={styles.textStyle}>
+        Ei você! Para que teste a funcionalidade, alterne entre desligar e ligar
+        o wifi do seu smartphone.
+      </Text>
     </View>
   );
 }
@@ -21,6 +25,8 @@ NetworkScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'pink',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+  textStyle: {justifyContent: 'center', textAlign: 'center', width: 300},
 });
